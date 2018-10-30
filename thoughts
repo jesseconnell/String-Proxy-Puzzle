@@ -1,0 +1,28 @@
+// No headers
+
+template <typename T>
+constexpr auto StringProxy()
+{
+	struct Helper {
+		T t;
+	};
+	if constexpr(sizeof(T) == 1) return 0;
+	else if constexpr
+	{
+		return 1 + StringProxy<decltype(*Helper::t)>();
+	}
+}
+
+#define TYP char const* const** const***
+
+//static_assert(StringProxy<TYP>() != 0);
+//static_assert(StringProxy<TYP>() == "abc", "");
+
+static_assert(StringProxy<char**>() == 2);
+static_assert(StringProxy<char*>() == 1);
+static_assert(StringProxy<char>() == 0);
+
+int main() {
+
+	return 0;
+}
