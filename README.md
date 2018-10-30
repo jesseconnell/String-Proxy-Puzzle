@@ -10,10 +10,10 @@ Program below demonstrates it. Code can be modified only in the places where `PU
 template <typename T> 
 constexpr auto StringProxy()
 {
-  PUZZLE 
+  return "StringProxy"; 
 }
 
-static_assert(StringProxy<PUZZLE>() == "StringProxy", "");
+static_assert(StringProxy<void>() == "StringProxy", "");
                                                            
 int main() { return 0; }
 ```
